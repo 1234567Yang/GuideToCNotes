@@ -8,4 +8,5 @@ int main(void){
     int res = fscanf(f, "%d %*d %d %49s %d", &a, &b, chr, &c); // 多出来的会自动截断，不影响下一个读取，会显示读取成功
     printf("res: %d \n%d %d %s %d\n\n", res, a, b, chr, c);
 
+    fclose(f);
 }

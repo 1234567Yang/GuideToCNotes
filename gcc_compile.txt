@@ -1,0 +1,25 @@
+# output file   source files
+#     v            v
+#   |----| |---------|
+gcc -o foo foo.c bar.c
+
+
+You can compile C files into an intermediate representation called object files. These are compiled machine code that hasn’t been put into an executable yet.
+你可以将C文件编译成称为对象文件的中间表示。这些是尚未被编译成可执行文件的机器码。
+
+gcc -c foo.c     # produces foo.o
+gcc -c bar.c     # produces bar.o
+
+And then we can [link] those together into a single executable:
+然后我们可以将这些文件【链接】起来，生成一个可执行文件：
+gcc -o foo foo.o bar.o
+这在大项目中很有用。
+
+
+查看汇编码
+
+gcc -S add.c -o add.c.s
+gcc -S -O2 add.c -o add.cO2.s
+gcc -S -O3 add.c -o add.cO3.s
+
+O1/O2/O3 -> 优化程度，越高越优化，但是体积可能变大。

@@ -1,0 +1,3 @@
+= -> Show list of clipboard buffers
+] -> Paste
+

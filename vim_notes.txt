@@ -1,0 +1,94 @@
+Vim笔记
+
+
+
+
+
+
+
+
+i -> 插入文本
+ESC 退出插入模式
+	Ctrl + U -> 删除当前行和光标间的所有内容
+
+	在 i 模式里面没有 undo 和 redo
+		Vim 默认把进入插入模式到退出插入模式之间的所有操作视为一次撤销单元。
+		所以如果你打了一大段字，不小心 Ctrl+W 删了一个单词，按 Esc + u 会把整段都撤销掉。
+		在插入模式中，按 Ctrl+G u 可以手动创建一个撤销断点。之后的操作就会被视为新的撤销单元。
+
+	Ctrl + o -> 临时执行一个 Normal 命令，然后回到插入模式。
+
+
+0 行首
+^ 行首第一个非空白字符
+$ 行尾
+
+
+Ctrl + Z -> Suspend Vim
+Then you can type fg to bring it back
+
+u stand for undo
+u -> 撤销上一步操作
+U -> 撤销当前行所有修改
+Ctrl + r -> Redo
+
+
+yy -> Copy line
+
+
+dw -> Delete word -> Cut from here to next word
+	[|test] -> [|]
+	[|    test] -> [|test]
+	[te|st    ] -> [te|]
+diw -> Delete inner word -> Cut this word
+	[test|    hi] -> [test|hi]
+	[   te|st   ] -> [   |   ]
+	[|test      ] -> [|      ] 
+dd -> Delete line
+
+所有删除的信息都会放在 p 里面
+1p - 9p 最近删除的内容
+:register 或 :reg -> 查看储存的内容
+
+
+:tabnew 或 :tabe [path_to_file]
+:tabn -> Next tab
+:tabp -> Previous tab
+[number starts from 1]gt -> Go to a specific tab
+
+:set paste -> i进入粘贴模式
+:set nopaste
+
+
+:mksession 或 :mks <file_name> 保存当前tabs
+:mks! 强制覆盖
+
+:source <file_name> 加载tabs
+
+:wq <file_name> -> Quit and Save
+:q -> Quit
+:q! -> Force Quit
+
+:arrow_up -> Show last command
+
+
+
+:set hlsearch -> 高亮搜索
+想要永久性高亮搜索，编辑 .vimrc， 添加 `:set hlsearch`
+
+
+/string -> 向下查找 string
+?string -> 向上查找 string
+
+* — 快速查找光标所在的单词（向下）
+# — 快速查找光标所在的单词（向上）
+
+/string\c -> 忽略大小写
+\<单词开头边界
+\>单词结尾边界
+
+按回车后：
+n -> 下一个匹配
+N -> 上一个匹配
+
+
